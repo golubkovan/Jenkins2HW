@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'agolubkov/buidimage:latest' }
+        docker { image 'agolubkov/buidimage' }
     }
     stages {
         stage('Test') {
