@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'agolubkov/buidimage'}
+    agent any
     stages {
         stage('Test') {
             steps {
