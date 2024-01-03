@@ -1,10 +1,11 @@
 pipeline {
     agent any
+
+    
     stages {
-        stage('Test') {
+        stage('Copy source with configs') {
             steps {
-                sh 'docker --version'
-                sh 'maven --version'
+                git'https://github.com/golubkovan/Jenkins2HW.git'
             }
         }
     }
