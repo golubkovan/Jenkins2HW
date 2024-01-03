@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build jar') {
             steps {
-                sh 'mv package'
+                sh 'mvn package'
             }
         }
     }
