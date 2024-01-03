@@ -8,5 +8,10 @@ pipeline {
                 git'https://github.com/golubkovan/Jenkins2HW.git'
             }
         }
+        stage('Build jar') {
+            steps {
+                sh 'mv package'
+            }
+        }
     }
 }
