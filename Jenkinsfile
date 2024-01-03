@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker { 
-            image 'agolubkov/buidimage'
-             }
-    }
+    agent {any}
     stages {
         stage('Test') {
             steps {
