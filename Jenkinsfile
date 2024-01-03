@@ -1,7 +1,8 @@
 pipeline {
     agent {
-        label  'agolubkov/buidimage'
-             
+        docker { 
+            image 'agolubkov/buidimage'
+             }
     }
     stages {
         stage('Test') {
