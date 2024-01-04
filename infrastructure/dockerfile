@@ -22,4 +22,4 @@ RUN apt -y install maven
 
 # Install docker 18.03
 RUN apt -y install docker.io
-CMD ["/bin/bash", "-l"]
+CMD "/bin/sh"
