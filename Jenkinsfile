@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'agolubkov/buidimage:latest'
+            args '-u root'
         }
    } 
 
