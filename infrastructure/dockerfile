@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM FROM  tomcat:9-jdk11
 RUN apt update && apt install -y maven && apt install -y git
 # Install docker 18.03
 RUN apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
