@@ -1,6 +1,8 @@
-FROM maven:3.6.3-openjdk-11
+FROM openjdk:8u151-stretch
+
 # Install pacakges
-RUN apt-get update && apt-get -y install git
+RUN apt-get update
+RUN apt-get -y install maven && apt-get -y install git
 
 # Install docker 18.03
 RUN apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
