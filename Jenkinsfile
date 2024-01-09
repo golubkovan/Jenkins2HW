@@ -27,12 +27,11 @@ pipeline {
         stage('Push image') {
             steps{
                 withCredentials([usernamePassword( credentialsId: 'dockerHub', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-                    def registry_url = "registry.hub.docker.com/"
-                    bat "docker login -u $USER -p $PASSWORD ${registry_url}"
-/**                    docker.withRegistry("http://${registry_url}", "dockerHub") {
+                    sh "docker login -u $USER -p $PASSWORD"
+                    docker.withRegistry("http://${registry_url}", "dockerHub") {
                         // Push your image now
-                        bat "docker push agolubkov/tomcat_boxfuse"
-                    }*/
+                        sh "docker push agolubkov/tomcat_boxfuse"
+                    }
                 }
             }
         }
