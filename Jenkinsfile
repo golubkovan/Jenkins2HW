@@ -44,7 +44,7 @@ pipeline {
                     remote.user = "${username}"
                     remote.password = "${password}"
                 }
-            sshCommand remote: remote, command: "pwd"
+            sshCommand remote: remote, command: "sudo pwd"
             }
         }
         }
