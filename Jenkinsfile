@@ -21,7 +21,7 @@ pipeline {
         stage('Make docker image') {
             steps {
                 sh 'sudo service docker start'
-                sh 'sudo service docker start'
+                sh 'service docker start'
                 sh 'docker --version'
                 sh 'ls -la'
                 sh 'docker build --tag=tomcat_boxfuse .'
