@@ -18,23 +18,26 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage('docker_login'){
-            steps{
-                withCredentials([usernamePassword(credentialsId: 'dockerHub_agolubkov', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
-                    sh"""
-                    docker login -u $USERNAME -p $PASSWORD
-                    """
-                }
-            }
+        
+        stage('Push image') {
+            sh 'docker build --tag=agolubkov/tomcat_boxfuse .'
+            withCredentials([usernamePassword( credentialsId: 'dockerHub', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
+                def registry_url = "registry.hub.docker.com/"
+                bat "docker login -u $USER -p $PASSWORD ${registry_url}"
+                docker.withRegistry("http://${registry_url}", "dockerHub") {
+                // Push your image now
+                bat "docker push agolubkov/tomcat_boxfuse"
         }
-        stage('Make docker image') {
+    }
+}
+/**       stage('Make docker image') {
             steps {
-/**                sh 'service docker start'*/
+                sh 'service docker start'
                 sh 'docker --version'
                 sh 'ls -la'
                 sh 'docker build --tag=agolubkov/tomcat_boxfuse .'
                 sh '''docker tag agolubkov/tomcat_boxfuse agolubkov/tomcat_boxfuse && docker push agolubkov/tomcat_boxfuse'''
             }
-        }
+        }*/
     }
 }
