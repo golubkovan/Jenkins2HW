@@ -18,6 +18,15 @@ pipeline {
                 sh 'mvn package'
             }
         }
+        stage(docker_login){
+            steps{
+                withCredentials([usernamePassword(credentialsID: 'dockerHub_agolubkov', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+                    sh"""
+                    docker login -u $USERNAME -p $PASSWORD
+                    """
+                }
+            }
+        }
         stage('Make docker image') {
             steps {
 /**                sh 'service docker start'*/
