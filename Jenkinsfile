@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'agolubkov/maven_3.6.3:latest'
             args '-v /var/run/docker.sock:/var/run/docker.sock' 
+            args '--privileged --user="root"'
         }
    } 
 
