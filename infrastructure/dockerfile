@@ -1,5 +1,5 @@
 FROM maven:3.6.3-jdk-11-slim
 # Install pacakges
-RUN apk update && apk add git
+RUN apt update && apt add git
 # Install docker 18.03
-RUN apk add docker
+RUN apt add docker
