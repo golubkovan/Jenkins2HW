@@ -24,7 +24,7 @@ pipeline {
                 sh 'docker --version'
                 sh 'ls -la'
                 sh 'docker build --tag=tomcat_boxfuse .'
-                sh '''docker tag tomcat_boxfuse agolubkov/tomcat_boxfuse && docker push agolubkov/tomcat_boxfuse'''
+                sh '''docker tag agolubkov/tomcat_boxfuse tomcat_boxfuse && docker push agolubkov/tomcat_boxfuse'''
             }
         }
     }
