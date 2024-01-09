@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'agolubkov/tomcat1:v1'
+            image 'agolubkov/maven_3.6.3:latest'
             args '-u root'
         }
    } 
