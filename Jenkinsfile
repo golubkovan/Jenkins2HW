@@ -23,8 +23,8 @@ pipeline {
 /**                sh 'service docker start'*/
                 sh 'docker --version'
                 sh 'ls -la'
-                sh 'docker build --tag=tomcat_boxfuse .'
-                sh '''docker tag agolubkov/tomcat_boxfuse tomcat_boxfuse && docker push agolubkov/tomcat_boxfuse'''
+                sh 'docker build --tag=agolubkov/tomcat_boxfuse .'
+                sh '''docker tag agolubkov/tomcat_boxfuse agolubkov/tomcat_boxfuse && docker push agolubkov/tomcat_boxfuse'''
             }
         }
     }
