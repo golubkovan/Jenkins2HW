@@ -18,7 +18,7 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        stage(docker_login){
+        stage('docker_login'){
             steps{
                 withCredentials([usernamePassword(credentialsID: 'dockerHub_agolubkov', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
                     sh"""
