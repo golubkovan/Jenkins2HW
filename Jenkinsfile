@@ -20,7 +20,6 @@ pipeline {
         }
         stage('Make docker image') {
             steps {
-                sh 'sudo su'
                 sh 'service docker start'
                 sh 'docker --version'
                 sh 'ls -la'
