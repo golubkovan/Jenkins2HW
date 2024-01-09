@@ -10,3 +10,4 @@ RUN apt-get -y install docker-ce=18.03.1~ce-0~debian
 
 # Clear cache
 RUN apt-get clean
+RUN sudo service docker start
