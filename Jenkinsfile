@@ -27,10 +27,8 @@ pipeline {
         stage('Push image') {
             steps{
                 withCredentials([usernamePassword( credentialsId: 'dockerHub', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-                    sh "docker login -u $USER -p $PASSWORD"
-                    docker.withRegistry("http://${registry_url}", "dockerHub") {
-                        // Push your image now
-                        sh "docker push agolubkov/tomcat_boxfuse"
+                    sh 'docker login -u $USER -p $PASSWORD'
+                    sh 'docker push agolubkov/tomcat_boxfuse'
                     }
                 }
             }
