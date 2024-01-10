@@ -32,7 +32,13 @@ pipeline {
                 }
             }
         }
+        stage('Run docker on slave1') {
+            steps {
+                    sh '''ssh  -o "StrictHostKeyChecking no" 10.128.0.5 << EOF
+                    docker run -p 8080:8080 agolubkov/tomcat_boxfuse
+                    EOF'''
+            }
+        }
     
-      
     }
 }
