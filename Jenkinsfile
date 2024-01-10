@@ -20,8 +20,8 @@ pipeline {
         }
         stage('Make docker image') {
             steps {
-                sh 'DOCKER_BUILDKIT=1 docker build --tag=agolubkov/tomcat_boxfuse .'
                 sh 'ls -la'
+                sh 'DOCKER_BUILDKIT=1 docker build --tag=agolubkov/tomcat_boxfuse .'
             }
         }
         stage('Push image') {
