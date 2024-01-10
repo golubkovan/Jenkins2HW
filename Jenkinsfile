@@ -38,7 +38,7 @@ pipeline {
                     docker stop tomcat_boxfuse
                     docker rm tomcat_boxfuse
                     docker rmi agolubkov/tomcat_boxfuse
-                    docker run -d -p 8080:8080 agolubkov/tomcat_boxfuse --name tomcat_boxfuse
+                    docker run --name tomcat_boxfuse -d -p 8080:8080 agolubkov/tomcat_boxfuse 
                     EOF'''
             }
         }
