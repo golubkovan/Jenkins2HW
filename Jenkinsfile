@@ -36,7 +36,7 @@ pipeline {
             steps {
                     sh '''ssh  -o "StrictHostKeyChecking no" 10.128.0.5 << EOF
 
-                    docker run --name tomcat_boxfuse -d -p 8080:8080 agolubkov/tomcat_boxfuse 
+                    docker run --name "tomcat_boxfuse" -d -p 8080:8080 agolubkov/tomcat_boxfuse 
                     EOF'''
             }
         }
