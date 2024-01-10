@@ -11,7 +11,7 @@ RUN apt-get -y install docker-ce=18.03.1~ce-0~debian
 RUN apt-get clean
 ADD ./id_rsa /root/.ssh/id_rsa
 ADD ./id_rsa.pub /root/.ssh/id_rsa.pub
-RUN chown root/root/.ssh/id_rsa
+RUN chown root /root/.ssh/id_rsa
 RUN chown root /root/.ssh/id_rsa.pub
 RUN chmod 600 /root/.ssh/id_rsa
 RUN chmod 644 /root/.ssh/id_rsa.pub
