@@ -39,8 +39,8 @@ pipeline {
                     sudo docker stop tomcat_boxfuse
                     sudo docker rm -f tomcat_boxfuse
                     sudo docker rmi -f agolubkov/tomcat_boxfuse:latest
-                    sudo docker run --name tomcat_boxfuse -d -p 8080:8080 agolubkov/tomcat_boxfuse 
-                    EOF'''
+                    sudo docker run --name tomcat_boxfuse -d -p 8080:8080 agolubkov/tomcat_boxfuse
+		EOF'''
             }
         }
     }
