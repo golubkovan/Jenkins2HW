@@ -36,11 +36,11 @@ pipeline {
             steps {
                     sh 'ssh-keyscan -H 10.128.0.5 >> ~/.ssh/known_hosts'
                     sh '''ssh root@10.128.0.5 << EOF
-                    sudo docker stop tomcat_boxfuse
-                    sudo docker rm -f tomcat_boxfuse
-                    sudo docker rmi -f agolubkov/tomcat_boxfuse:latest
-                    sudo docker run --name tomcat_boxfuse -d -p 8080:8080 agolubkov/tomcat_boxfuse
-		            << EOF'''
+sudo docker stop tomcat_boxfuse
+sudo docker rm -f tomcat_boxfuse
+sudo docker rmi -f agolubkov/tomcat_boxfuse:latest
+sudo docker run --name tomcat_boxfuse -d -p 8080:8080 agolubkov/tomcat_boxfuse
+EOF'''
             }
         }
     }
