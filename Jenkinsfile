@@ -32,20 +32,16 @@ pipeline {
                 }
             }
         }
-        stage('Prepare docker on slave1') {
+        stage('Run docker on slave1') {
             steps {
-                    sh '''ssh -o "StrictHostKeyChecking no" root@10.128.0.5 << EOF
+                    sh 'ssh-keyscan -H 10.128.0.5 >> ~/.ssh/known_hosts'
+                    sh '''ssh root@10.128.0.5 << EOF
                     sudo docker stop tomcat_boxfuse
                     sudo docker rm -f tomcat_boxfuse
                     sudo docker rmi -f agolubkov/tomcat_boxfuse:latest
-                    EOF '''
+                    sudo docker run --name tomcat_boxfuse -d -p 8080:8080 agolubkov/tomcat_boxfuse 
+                    EOF'''
             }
         }
-        stage('Run docker on slave1') {
-            steps {
-                    sh 'ssh -o "StrictHostKeyChecking no" root@10.128.0.5 sudo docker run --name tomcat_boxfuse -d -p 8080:8080 agolubkov/tomcat_boxfuse '
-            }
-        }
-    
     }
 }
