@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Run docker on slave1') {
             steps {
-                    sh '''ssh root@10.128.0.5 << EOF
+                    sh '''ssh -o "StrictHostKeyChecking no" root@10.128.0.5 << EOF
                     ping -c 3 10.128.0.5 
                     docker stop tomcat_boxfuse
                     docker rm -f tomcat_boxfuse
