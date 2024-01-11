@@ -13,7 +13,7 @@ pipeline {
                 git'https://github.com/golubkovan/Jenkins2HW.git'
             }
         }
-        stage('Build jar') {
+        stage('Build war') {
             steps {
                 sh 'mvn package'
             }
