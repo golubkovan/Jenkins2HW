@@ -35,8 +35,16 @@ pipeline {
         stage('Run docker on slave1') {
             steps {
                     sh '''ssh  -o "StrictHostKeyChecking no" 10.128.0.5 << EOF
-
-                    docker run --name "tomcat_boxfuse" -d -p 8080:8080 agolubkov/tomcat_boxfuse 
+                    docker stop agolubkov/tomcat_boxfuse
+                    EOF'''
+                    sh '''ssh  -o "StrictHostKeyChecking no" 10.128.0.5 << EOF
+                    docker rm agolubkov/tomcat_boxfuse 
+                    EOF'''
+                    sh '''ssh  -o "StrictHostKeyChecking no" 10.128.0.5 << EOF
+                    docker rmi agolubkov/tomcat_boxfuse 
+                    EOF'''
+                    sh '''ssh  -o "StrictHostKeyChecking no" 10.128.0.5 << EOF
+                    docker run --name tomcat_boxfuse -d -p 8080:8080 agolubkov/tomcat_boxfuse 
                     EOF'''
             }
         }
